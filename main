@@ -1,0 +1,23 @@
+
+provider "aws" {
+   region = "us-east-1"
+}
+resource "aws_instance" "terraform_demo" {
+ami = "ami-04b70fa74e45c3917"
+instance_type = "t2.nano"
+      key_name   = "clarice"
+
+ tags = {
+        Name = "kubs"
+        Env = "dev"
+    }
+
+}
+output  "public-ip" {
+     value = aws_instance.terraform_demo.public_ip
+}
+
+
+
+
+
